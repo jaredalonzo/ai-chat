@@ -10,22 +10,23 @@ body {
 /* Style for the chat container */
 .chat-container {
   width: 300px;
-  margin: 20px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
 }
 
 /* Style for the chat bubbles */
 .chat-bubble {
-  background-color: #E5E5EA; /* Light gray */
+  background-color: #3b3b3d; /* Light gray */
   color: white;
-  border-radius: 10px;
-  padding: 10px;
+  font-size: 0.8rem;
+  border-radius: 15px;
+  padding: 8px;
   margin: 5px;
   max-width: 70%; /* Adjust as needed */
   align-self: flex-start; /* User messages on the left */
-  display: flex;
-  flex-direction: column;
+/*  display: flex;*/
+/*  flex-direction: column;*/
 }
 
 /* Style for the user's chat bubbles */
@@ -33,26 +34,35 @@ body {
   background-color: #007AFF; /* iOS blue color */
   text-align: left;
   align-self: flex-end; /* User messages on the right */
-  padding-left: 20px; /* Adjust padding as needed */
-  padding-right: 10px; /* Adjust padding as needed */
 }
 
-.message-input {
-    width: 100%;
+.chat-input {
     padding: 10px;
     border: none;
     border-top: 1px solid #ccc;
     margin-top: 10px;
     resize: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-content {
+    font-size: 0.8rem;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+    align-self: flex-start;
+    resize: none;
 }
 
 .send-button {
-    width: 100%;
     padding: 10px;
+    border-radius: 15px;
     background-color: #007AFF;
     color: white;
     border: none;
     cursor: pointer;
+    align-self: flex-end;
 }
 
 /*textarea {*/
