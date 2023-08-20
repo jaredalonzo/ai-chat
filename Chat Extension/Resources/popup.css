@@ -3,12 +3,91 @@
 }
 
 body {
-    width: 100px;
-    padding: 10px;
-
     font-family: system-ui;
     text-align: center;
 }
+
+/* Style for the chat container */
+.chat-container {
+  width: 300px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the chat bubbles */
+.chat-bubble {
+  background-color: #E5E5EA; /* Light gray */
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  max-width: 70%; /* Adjust as needed */
+  align-self: flex-start; /* User messages on the left */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for the user's chat bubbles */
+.user-bubble {
+  background-color: #007AFF; /* iOS blue color */
+  text-align: left;
+  align-self: flex-end; /* User messages on the right */
+  padding-left: 20px; /* Adjust padding as needed */
+  padding-right: 10px; /* Adjust padding as needed */
+}
+
+.message-input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    resize: none;
+}
+
+.send-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007AFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/*textarea {*/
+/*    padding: 10px;*/
+/*    max-width: 100%;*/
+/*    line-height: 1.5;*/
+/*    border-radius: 10px;*/
+/*    border: 1px solid #ccc;*/
+/*    resize: none;*/
+/*}*/
+/**/
+/*.tab {*/
+/*    overflow: hidden;*/
+/*    border: 1px solid #ccc;*/
+/*}*/
+/**/
+/*.tab button {*/
+/*    background-color: inherit;*/
+/*    float: left;*/
+/*    border: none;*/
+/*    outline: none;*/
+/*    cursor: pointer;*/
+/*    padding: 14px 16px;*/
+/*}*/
+/**/
+/*.tab button:hover {*/
+/*    background-color: #ccc;*/
+/*}*/
+/**/
+/*.tab-content {*/
+/*    display: none;*/
+/*    padding: 6px 12px;*/
+/*    border: 1px solid #ccc;*/
+/*    border-top: none;*/
+/*}*/
 
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
