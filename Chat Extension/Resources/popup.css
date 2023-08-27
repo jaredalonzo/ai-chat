@@ -11,28 +11,32 @@ body {
 .chat-container {
   width: 300px;
   margin: 10px auto;
-  display: flex;
-  flex-direction: column;
+}
+
+/* Style for the chat outputs */
+.chat-output {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Style for the chat bubbles */
 .chat-bubble {
-  background-color: #3b3b3d; /* Light gray */
-  color: white;
+  background-color: rgb(221, 221, 223); /* Light gray */
+  color: black;
   font-size: 0.8rem;
+  text-align: start;
   border-radius: 15px;
   padding: 8px;
   margin: 5px;
   max-width: 70%; /* Adjust as needed */
   align-self: flex-start; /* User messages on the left */
-/*  display: flex;*/
-/*  flex-direction: column;*/
 }
 
 /* Style for the user's chat bubbles */
 .user-bubble {
   background-color: #007AFF; /* iOS blue color */
   text-align: left;
+  color: white;
   align-self: flex-end; /* User messages on the right */
 }
 
@@ -43,62 +47,47 @@ body {
     margin-top: 10px;
     resize: none;
     display: flex;
-    flex-direction: column;
 }
 
-.message-content {
+.chat-message {
     font-size: 0.8rem;
     border-radius: 15px;
     padding: 8px;
     margin: 5px;
-    align-self: flex-start;
+    width: 100%;
     resize: none;
+    position: relative;
+    align-self: flex-start;
 }
 
 .send-button {
-    padding: 10px;
     border-radius: 15px;
+    padding: 10px;
     background-color: #007AFF;
     color: white;
     border: none;
     cursor: pointer;
-    align-self: flex-end;
+    align-self: center;
 }
-
-/*textarea {*/
-/*    padding: 10px;*/
-/*    max-width: 100%;*/
-/*    line-height: 1.5;*/
-/*    border-radius: 10px;*/
-/*    border: 1px solid #ccc;*/
-/*    resize: none;*/
-/*}*/
-/**/
-/*.tab {*/
-/*    overflow: hidden;*/
-/*    border: 1px solid #ccc;*/
-/*}*/
-/**/
-/*.tab button {*/
-/*    background-color: inherit;*/
-/*    float: left;*/
-/*    border: none;*/
-/*    outline: none;*/
-/*    cursor: pointer;*/
-/*    padding: 14px 16px;*/
-/*}*/
-/**/
-/*.tab button:hover {*/
-/*    background-color: #ccc;*/
-/*}*/
-/**/
-/*.tab-content {*/
-/*    display: none;*/
-/*    padding: 6px 12px;*/
-/*    border: 1px solid #ccc;*/
-/*    border-top: none;*/
-/*}*/
 
 @media (prefers-color-scheme: dark) {
     /* Dark Mode styles go here. */
+    .chat-bubble {
+      background-color: #3b3b3d; /* Light gray */
+      color: white;
+      font-size: 0.8rem;
+      border-radius: 15px;
+      padding: 8px;
+      margin: 5px;
+      max-width: 70%; /* Adjust as needed */
+      align-self: flex-start; /* User messages on the left */
+    /*  display: flex;*/
+    /*  flex-direction: column;*/
+    }
+    
+    .user-bubble {
+        background-color: #007AFF; /* iOS blue color */
+        text-align: left;
+        align-self: flex-end; /* User messages on the right */
+    }
 }

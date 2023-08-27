@@ -18,11 +18,10 @@
         "service_worker": "background.js"
     },
 
-    "content_scripts": [{
-        "js": [ "content.js" ],
-        "matches": [ "*://example.com/*" ]
-    }],
-
+    "options_ui": {
+        "page": "options.html"
+    },
+    
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
@@ -35,5 +34,5 @@
         }
     },
 
-    "permissions": [ ]
+    "permissions": [ "storage" ]
 }

@@ -25,6 +25,8 @@
 		DB5E2A2E2A8FD15200C1EC3B /* popup.html in Resources */ = {isa = PBXBuildFile; fileRef = DB5E2A2D2A8FD15200C1EC3B /* popup.html */; };
 		DB5E2A302A8FD15200C1EC3B /* popup.css in Resources */ = {isa = PBXBuildFile; fileRef = DB5E2A2F2A8FD15200C1EC3B /* popup.css */; };
 		DB5E2A322A8FD15200C1EC3B /* popup.js in Resources */ = {isa = PBXBuildFile; fileRef = DB5E2A312A8FD15200C1EC3B /* popup.js */; };
+		DB5E2A3F2A9C041200C1EC3B /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = DB5E2A3E2A9C041200C1EC3B /* options.html */; };
+		DB5E2A412A9C050A00C1EC3B /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = DB5E2A402A9C050A00C1EC3B /* options.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		DB5E2A312A8FD15200C1EC3B /* popup.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = popup.js; sourceTree = "<group>"; };
 		DB5E2A332A8FD15200C1EC3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB5E2A342A8FD15200C1EC3B /* Chat_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Chat_Extension.entitlements; sourceTree = "<group>"; };
+		DB5E2A3E2A9C041200C1EC3B /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = "Chat Extension/Resources/options.html"; sourceTree = SOURCE_ROOT; };
+		DB5E2A402A9C050A00C1EC3B /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = options.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,8 @@
 				DB5E2A2D2A8FD15200C1EC3B /* popup.html */,
 				DB5E2A2F2A8FD15200C1EC3B /* popup.css */,
 				DB5E2A312A8FD15200C1EC3B /* popup.js */,
+				DB5E2A3E2A9C041200C1EC3B /* options.html */,
+				DB5E2A402A9C050A00C1EC3B /* options.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -266,6 +272,8 @@
 				DB5E2A242A8FD15200C1EC3B /* _locales in Resources */,
 				DB5E2A2C2A8FD15200C1EC3B /* content.js in Resources */,
 				DB5E2A322A8FD15200C1EC3B /* popup.js in Resources */,
+				DB5E2A3F2A9C041200C1EC3B /* options.html in Resources */,
+				DB5E2A412A9C050A00C1EC3B /* options.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
