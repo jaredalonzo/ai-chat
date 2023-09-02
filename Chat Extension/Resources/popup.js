@@ -13,6 +13,7 @@ function addChatMessage(message, isUser = false) {
 
     // Append the chat bubble to the chat container
     chatContainer.appendChild(chatBubble);
+    chatContainer.scrollTo(0, chatContainer.scrollHeight);
 }
 
  // Function to handle sending a message
@@ -137,11 +138,3 @@ function onError(error) {
 
 const today = new Date(Date.now());
 browser.storage.sync.get(today.toDateString()).then(gotHistory, onError);
-
-//if (!chatHistory) {
-//    start(today.toDateString(), gotHistory, onError);
-//} else {
-//    console.log(chatHistory);
-//    render();
-//}
-

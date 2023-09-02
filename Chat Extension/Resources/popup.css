@@ -17,6 +17,8 @@ body {
 .chat-output {
     display: flex;
     flex-direction: column;
+    max-height: 300px;
+    overflow-y: scroll;
 }
 
 /* Style for the chat bubbles */
