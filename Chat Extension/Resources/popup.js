@@ -26,8 +26,10 @@ function sendMessage() {
     }
 }
 
-function start() {
+// Ideally just render the dom elements here and set event listeners - TODO: move adding inital chat message somewhere else
+function start(date, sessionHistory) {
     const chatContainer = document.getElementById("chat-container");
+    let session = [];
     
     // main
     const chatOutput = document.createElement("div");
@@ -35,8 +37,28 @@ function start() {
     chatOutput.id = "chat-output"
     chatContainer.appendChild(chatOutput);
     
-    // add initial message
-    addChatMessage("Hello, how can I help you?");
+    if (!sessionHistory.hasOwnProperty(date)) { // if new session, add initial message
+        session.push({
+            "role": "system",
+            "content": "Hello, how can I help you today?"
+        });
+        browser.storage.sync.set({[date]: session}).then(() => {
+            addChatMessage("Hello, how can I help you?");
+        }, (error) => {
+            console.error(error);
+        });
+    } else { // if not, loop over previous chats and render
+        console.log(sessionHistory[date].length);
+        sessionHistory[date].forEach(item => {
+            session.push(item);
+            console.log(item);
+            if (item.role === "system") {
+                addChatMessage(item.content);
+            } else {
+                addChatMessage(item.content, true);
+            }
+        });
+    }
     
     // input section
     const chatInput = document.createElement("div");
@@ -54,35 +76,37 @@ function start() {
             return;
         }
         
+        function setItem() {
+            console.log("success");
+        }
+        
+        session.push({
+            "role": "user",
+            "content": event.target.value
+        });
         addChatMessage(event.target.value, true);
         createChatCompletion(event.target.value).then(data => {
-           addChatMessage(data.choices[0].message.content);
+            const message = event.target.value;
+            session.push({
+                "role": "system",
+                "content": data.choices[0].message.content
+                
+            });
+            browser.storage.sync.set({[date]: session}).then(setItem, onError).then(() => {
+                addChatMessage(data.choices[0].message.content);
+            });
         });
         event.target.value = ""; // Clear the input field
         event.preventDefault();
     });
-//    const sendButton = document.createElement("button");
-//    sendButton.className = "send-button"
-//    sendButton.textContent = "Send";
-//    sendButton.addEventListener("click", () => {
-//        const message = chatMessage.value;
-//        if (message.trim() !== "") {
-//            addChatMessage(message, true); // Add user's message to the chat
-//            createChatCompletion(message).then(data => {
-//                addChatMessage(data.choices[0].message.content);
-//            });
-//        }
-//        message = "";
-//    });
-    chatInput.appendChild(chatMessage);
-//    chatInput.appendChild(sendButton);
     
+    chatInput.appendChild(chatMessage);
     chatContainer.appendChild(chatInput);
 }
 
 async function createChatCompletion(message) {
     const chatCompletetionEndpoint = "https://api.openai.com/v1/chat/completions";
-    const openAIKey = null;
+    const openAIKey = "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";
     const payload = {
         model: "gpt-3.5-turbo",
         messages: [
@@ -103,4 +127,21 @@ async function createChatCompletion(message) {
     return response.json();
 }
 
-start();
+function gotHistory(item) {
+    start(today.toDateString(), item);
+}
+
+function onError(error) {
+    console.error(error);
+}
+
+const today = new Date(Date.now());
+browser.storage.sync.get(today.toDateString()).then(gotHistory, onError);
+
+//if (!chatHistory) {
+//    start(today.toDateString(), gotHistory, onError);
+//} else {
+//    console.log(chatHistory);
+//    render();
+//}
+
