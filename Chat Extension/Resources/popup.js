@@ -106,7 +106,7 @@ function start(date, sessionHistory) {
 
 async function createChatCompletion(message) {
     const chatCompletetionEndpoint = "https://api.openai.com/v1/chat/completions";
-    const openAIKey = "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";
+    const openAIKey = null;
     const payload = {
         model: "gpt-3.5-turbo",
         messages: [
